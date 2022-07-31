@@ -28,21 +28,18 @@ public class CallbackTest {
         driver.quit();
         driver = null;
     }
-    @Test
-    public void shouldSendForm(){
-        driver.get("http://localhost:9999/");
-//        driver.findElement().sendKeys("Прунь Дмитрий");
-//        driver.findElement().sendKeys("+79272079668");
-        List<WebElement> textFields = driver.findElements(By.className("input__control"));
-        textFields.get(0).sendKeys("Прунь Дмитрий");
-        textFields.get(1).sendKeys("+79272079668");
-        driver.findElement(By.className("checkbox__box")).click();
-        driver.findElement(By.tagName("button")).click();
-        String actualText = driver.findElement(By.className("paragraph")).getText().trim();
-        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        assertEquals(expected, actualText);
-    }
-
+//    @Test
+//    public void shouldSendForm(){
+//        driver.get("http://localhost:9999/");
+//        List<WebElement> textFields = driver.findElements(By.className("input__control"));
+//        textFields.get(0).sendKeys("Прунь Дмитрий");
+//        textFields.get(1).sendKeys("+79272079668");
+//        driver.findElement(By.className("checkbox__box")).click();
+//        driver.findElement(By.tagName("button")).click();
+//        String actualText = driver.findElement(By.className("paragraph")).getText().trim();
+//        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
+//        assertEquals(expected, actualText);
+//    }
     @Test
 //    cssSelector
     void shouldTestData() {
