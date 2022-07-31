@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.List;
 
@@ -19,10 +20,25 @@ public class CallbackTest {
     public static void setUpAll (){
         System.setProperty("webdriver.chrome.driver","./driver/win/chromedriver.exe");
     }
+//    @BeforeEach
+//    public void setUp(){
+//        driver = new ChromeDriver();
+//    }
+//    @BeforeAll
+//    static void setUpAll() {
+//        WebDriverManager.chromedriver().setup();
+//    }
+
     @BeforeEach
-    public void setUp(){
-        driver = new ChromeDriver();
+    void setUp() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
     }
+
+
     @AfterEach
     public void tearDown() {
         driver.quit();
