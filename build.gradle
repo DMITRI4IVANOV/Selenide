@@ -16,8 +16,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.7.1'
-    implementation group: 'com.codeborne', name: 'selenide', version: '5.20.4'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.6.1'
+    testImplementation 'com.codeborne:selenide:5.19.0'
 }
 
 test {
