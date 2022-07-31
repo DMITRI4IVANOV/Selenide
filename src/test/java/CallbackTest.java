@@ -20,23 +20,23 @@ public class CallbackTest {
     public static void setUpAll (){
         System.setProperty("webdriver.chrome.driver","./driver/win/chromedriver.exe");
     }
-//    @BeforeEach
-//    public void setUp(){
-//        driver = new ChromeDriver();
-//    }
+    @BeforeEach
+    public void setUp(){
+        driver = new ChromeDriver();
+    }
 //    @BeforeAll
 //    static void setUpAll() {
 //        WebDriverManager.chromedriver().setup();
 //    }
 
-    @BeforeEach
-    void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
-    }
+//    @BeforeEach
+//    void setUp() {
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--disable-dev-shm-usage");
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--headless");
+//        driver = new ChromeDriver(options);
+//    }
 
 
     @AfterEach
@@ -44,18 +44,18 @@ public class CallbackTest {
         driver.quit();
         driver = null;
     }
-    @Test
-    public void shouldSendForm(){
-        driver.get("http://localhost:9999/");
-        List<WebElement> textFields = driver.findElements(By.className("input__control"));
-        textFields.get(0).sendKeys("Прунь Дмитрий");
-        textFields.get(1).sendKeys("+79272079668");
-        driver.findElement(By.className("checkbox__box")).click();
-        driver.findElement(By.tagName("button")).click();
-        String actualText = driver.findElement(By.className("paragraph")).getText().trim();
-        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        assertEquals(expected, actualText);
-    }
+//    @Test
+//    public void shouldSendForm(){
+//        driver.get("http://localhost:9999/");
+//        List<WebElement> textFields = driver.findElements(By.className("input__control"));
+//        textFields.get(0).sendKeys("Прунь Дмитрий");
+//        textFields.get(1).sendKeys("+79272079668");
+//        driver.findElement(By.className("checkbox__box")).click();
+//        driver.findElement(By.tagName("button")).click();
+//        String actualText = driver.findElement(By.className("paragraph")).getText().trim();
+//        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
+//        assertEquals(expected, actualText);
+//    }
     @Test
 //    cssSelector
     void shouldTestData() {
