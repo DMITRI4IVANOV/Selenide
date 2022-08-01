@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,33 +11,31 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Selenide.$;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CallbackTest {
     private WebDriver driver;
     @BeforeAll
-    public static void setUpAll (){
+    public static void setUpAll1 (){
         System.setProperty("webdriver.chrome.driver","./driver/win/chromedriver.exe");
     }
     @BeforeEach
-    public void setUp(){
+    public void setup(){
         driver = new ChromeDriver();
     }
-//    @BeforeAll
-//    static void setUpAll() {
-//        WebDriverManager.chromedriver().setup();
-//    }
+    @BeforeAll
+    static void setUpAll() {
+        WebDriverManager.chromedriver().setup();
+    }
 
-//    @BeforeEach
-//    void setUp() {
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--disable-dev-shm-usage");
-//        options.addArguments("--no-sandbox");
-//        options.addArguments("--headless");
-//        driver = new ChromeDriver(options);
-//    }
+    @BeforeEach
+    void setUp() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
+    }
 
 
     @AfterEach
